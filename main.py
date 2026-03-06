@@ -47,7 +47,7 @@ def load_models():
     MRI_model = load_model(MRI_model_path, compile=False)
 
     return histopathological_model, MRI_model
-
+histopathological_model, MRI_model = load_models()
 # -------------------------------------------------
 # CLASS NAMES
 # -------------------------------------------------
