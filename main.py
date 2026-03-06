@@ -35,24 +35,22 @@ def load_models():
 
     histopath_model_path = hf_hub_download(
         repo_id="Adharsh102/cancer-detection-models",
-        filename="resnet50_cancer_model-finetuned-version-1.keras"
+        filename="histopath_model.h5"
     )
 
     MRI_model_path = hf_hub_download(
         repo_id="Adharsh102/cancer-detection-models",
-        filename="resnet50_cancer_model-MRI-finetuned-version-1.keras"
+        filename="mri_model.h5"
     )
 
     histopathological_model = tf.keras.models.load_model(
         histopath_model_path,
-        compile=False,
-        safe_mode=False
+        compile=False
     )
 
     MRI_model = tf.keras.models.load_model(
         MRI_model_path,
-        compile=False,
-        safe_mode=False
+        compile=False
     )
 
     return histopathological_model, MRI_model
