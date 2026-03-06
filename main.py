@@ -33,25 +33,20 @@ lottie_loading = load_lottie("loading.json")
 @st.cache_resource
 def load_models():
 
-    # Download Histopathological model
     histopath_model_path = hf_hub_download(
         repo_id="Adharsh102/cancer-detection-models",
         filename="resnet50_cancer_model-finetuned-version-1.keras"
     )
 
-    # Download MRI model
     MRI_model_path = hf_hub_download(
         repo_id="Adharsh102/cancer-detection-models",
         filename="resnet50_cancer_model-MRI-finetuned-version-1.keras"
     )
 
-    histopathological_model = load_model(histopath_model_path)
-    MRI_model = load_model(MRI_model_path)
+    histopathological_model = load_model(histopath_model_path, compile=False)
+    MRI_model = load_model(MRI_model_path, compile=False)
 
     return histopathological_model, MRI_model
-
-
-histopathological_model, MRI_model = load_models()
 
 # -------------------------------------------------
 # CLASS NAMES
