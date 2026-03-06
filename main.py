@@ -1,14 +1,12 @@
 import streamlit as st
 import tensorflow as tf
-from tensorflow.keras.models import load_model, Model
+from tensorflow.keras.models import Model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 import cv2
 from streamlit_lottie import st_lottie
 import json
 from huggingface_hub import hf_hub_download
-from tensorflow.keras.models import load_model
-
 
 # -------------------------------------------------
 # PAGE CONFIG (must be first Streamlit command)
@@ -30,6 +28,8 @@ lottie_loading = load_lottie("loading.json")
 # LOAD MODELS
 # -------------------------------------------------
 
+
+
 @st.cache_resource
 def load_models():
 
@@ -43,10 +43,21 @@ def load_models():
         filename="resnet50_cancer_model-MRI-finetuned-version-1.keras"
     )
 
-    histopathological_model = load_model(histopath_model_path, compile=False)
-    MRI_model = load_model(MRI_model_path, compile=False)
+    histopathological_model = tf.keras.models.load_model(
+        histopath_model_path,
+        compile=False,
+        safe_mode=False
+    )
+
+    MRI_model = tf.keras.models.load_model(
+        MRI_model_path,
+        compile=False,
+        safe_mode=False
+    )
 
     return histopathological_model, MRI_model
+
+
 histopathological_model, MRI_model = load_models()
 # -------------------------------------------------
 # CLASS NAMES
