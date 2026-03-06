@@ -45,12 +45,14 @@ def load_models():
 
     histopathological_model = tf.keras.models.load_model(
         histopath_model_path,
-        compile=False
+        compile=False,
+        safe_mode=False
     )
 
     MRI_model = tf.keras.models.load_model(
         MRI_model_path,
-        compile=False
+        compile=False,
+        safe_mode=False
     )
 
     return histopathological_model, MRI_model
