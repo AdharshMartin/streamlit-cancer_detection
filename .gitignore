@@ -1,0 +1,47 @@
+# Virtual Environment
+
+venv/
+env/
+ENV/
+.venv/
+
+# Python cache
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environment variables
+
+.env
+
+# Jupyter Notebook
+
+.ipynb_checkpoints/
+
+# IDE settings
+
+.vscode/
+.idea/
+
+# Logs
+
+*.log
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+# Streamlit
+
+.streamlit/secrets.toml
+models/
+*.keras
